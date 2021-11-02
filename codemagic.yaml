@@ -2,4 +2,4 @@ workflows:
   AR-v1:
     name: AR Version 1 workflow
     scripts:
-        - echo "Hello World!"
+        - unity$ xcodebuild test -destination "platform=iOS,id=400d20d00baf8d4997b47be0416cf5c44dd2d3bc" -scheme Unity-iPhone
