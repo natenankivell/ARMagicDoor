@@ -5,8 +5,8 @@ workflows:
       xcode: latest
       cocoapods: default
       vars:
-          XCODE_PROJECT: "BMI Calculator.xcodeproj" # <-- Put the name of your project here. 
-          XCODE_SCHEME: "BMI Calculator" # <-- Put the name of your scheme here.
+          XCODE_PROJECT: "Unity-iPhone.xcodeproj" # <-- Put the name of your project here. 
+          XCODE_SCHEME: "Unity-iPhone" # <-- Put the name of your scheme here.
     scripts:
       - name: Run tests
         script: |
