@@ -1,9 +1,6 @@
 workflows:
-- name: iOS test
-  script: |
-    xcode-project run-tests \
-        --workspace Unity-iPhone.xcworkspace \
-        --scheme Unity-iPhone \
-        --device "iPhone 11"
-  test_report: build/ios/test/*.xml
-  
+  ios:
+    name: build, test & publish iOS version
+    scripts:
+      - xcodebuild build -project "Unity-iPhone.xcodeproj" -scheme "Unity-iPhone" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
