@@ -1,24 +1,9 @@
 workflows:
-  ios-project-debug: # workflow ID
-    name: iOS debug # workflow name
-    environment:
-      xcode: latest
-      cocoapods: default
-      vars:
-          XCODE_PROJECT: "Unity-iPhone.xcodeproj" # <-- Put the name of your project here. 
-          XCODE_SCHEME: "Unity-iPhone" # <-- Put the name of your scheme here.
-    scripts:
-      - name: Run tests
-        script: |
-          xcodebuild \
-          -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          -destination "platform=iOS,id=400d20d00baf8d4997b47be0416cf5c44dd2d3bc" \
-          clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO          
-      - name: Build debug app
-        script: |
-          xcodebuild build -project "$XCODE_PROJECT" \
-          -scheme "$XCODE_SCHEME" \
-          CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO          
-    artifacts:
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+  name: iOS test
+  script: |
+    xcode-project run-tests \
+        --workspace Unity-iPhone.xcworkspace \
+        --scheme Unity-iPhone \
+        --device "iPhone 11"
+  test_report: build/ios/test/*.xml
+  
